@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:moviez/shared/theme.dart';
 
 class MovieTile extends StatelessWidget {
   final String title;
   final String genres;
   final String imageUrl;
-  final String rateUrl;
+  final double rating;
 
   const MovieTile({
     Key? key,
     required this.title,
     required this.genres,
     required this.imageUrl,
-    required this.rateUrl,
+    this.rating = 0.0,
   }) : super(key: key);
 
   @override
@@ -56,15 +57,20 @@ class MovieTile extends StatelessWidget {
                 ),
               ),
               Container(
-                width: 98,
-                height: 18,
                 margin: const EdgeInsets.only(top: 18),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      rateUrl,
-                    ),
+                child: RatingBar.builder(
+                  initialRating: rating,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  itemCount: 5,
+                  itemSize: 20,
+                  itemBuilder: (context, _) => Icon(
+                    Icons.star,
+                    color: kYellowColor,
                   ),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  },
                 ),
               ),
             ],

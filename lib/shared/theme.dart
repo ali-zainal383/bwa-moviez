@@ -7,6 +7,7 @@ Color kBackgroundColor = const Color(0xffFBFBFD);
 Color kWhiteColor = const Color(0xffffffff);
 Color kBlueColor = const Color(0xff0D0846);
 Color kGreyColor = const Color(0xff929292);
+Color kYellowColor = const Color(0xffFFAB2E);
 
 TextStyle blueTextStyle = GoogleFonts.poppins(
   color: kBlueColor,
